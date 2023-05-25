@@ -1,4 +1,9 @@
 {
-  "greeting": "Hello, world!",
-  "farewell": "Goodbye, world!"
+  "books": "Books",
+  "error-message": "Sorry, an unexpected error has occurred - please, go back to ",
+  "error-title": "Oops",
+  "home": "Home",
+  "lotr": "Lord of the Rings",
+  "movies": "Movies",
+  "quotes": "Quotes"
 }

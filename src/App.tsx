@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import reactLogo from './assets/react.svg';
 
@@ -9,7 +8,6 @@ import './app.scss';
 
 function App() {
   const [count, setCount] = useState(0);
-  const { t } = useTranslation();
 
   return (
     <>
@@ -24,8 +22,6 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <h1>{t('greeting')}</h1>
-        <p>{t('farewell')}</p>
         <p>
           Edit <code>src/app.tsx</code> and save to test HMR
         </p>
