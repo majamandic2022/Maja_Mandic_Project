@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import TableView from '../../components/table-view/table-view';
-import { TableColumnType } from '../../shared/types';
+import { TableColumn } from '../../shared/types';
 
-const columns: TableColumnType[] = [
+const columns: TableColumn[] = [
   {
     field: 'title',
     header: 'title',

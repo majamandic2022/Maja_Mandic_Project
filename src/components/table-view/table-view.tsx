@@ -1,65 +1,72 @@
 import { InputText } from 'primereact/inputtext';
-import React, { FC, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { TableColumnType } from '../../shared/types';
+import { Book, TableColumn } from '../../shared/types';
 import DataTable from '../data-table/data-table';
 
 type Props = {
-  columns: TableColumnType[];
+  columns: TableColumn[];
 };
-
-const books = [
-  {
-    title: 'Book 1',
-    author: 'Dickens',
-  },
-  {
-    title: 'Book 2',
-    author: 'Dickens',
-  },
-  {
-    title: 'Book 3',
-    author: 'Dickens',
-  },
-];
 
 const TableView: FC<Props> = ({ columns }) => {
   const { t } = useTranslation();
-  const [loading, setLoading] = useState(false);
-  const [globalFilterValue, setGlobalFilterValue] = useState('');
+  const [loading] = useState(false);
+  const [items] = useState<Book[]>([
+    { title: 'Book 1', author: 'Dickens' },
+    { title: 'Book 2', author: 'Dickens' },
+    { title: 'Book 3', author: 'Dickens' },
+  ]);
 
-  const renderHeader = () => {
-    return (
-      <div className="flex justify-content-end">
-        <span className="p-input-icon-left">
-          <i className="pi pi-search" />
-          <InputText
-            value={globalFilterValue}
-            onChange={(e) => setGlobalFilterValue(e.target.value)}
-            placeholder={t('search') || ''}
-          />
-        </span>
-      </div>
-    );
+  const [listItems, setListItems] = useState<Book[]>([]);
+
+  const handleFilterChange = (filterText: string) => {
+    const filteredItems = items.filter((item) => item.title.toLowerCase().includes(filterText.toLowerCase()));
+    setListItems(filteredItems);
   };
 
   return (
     <div className="datatable-container">
       <DataTable
-        value={books}
-        paginator
+        value={listItems}
         rows={10}
         dataKey={columns[0].field || ''}
         filterDisplay="row"
         loading={loading}
-        header={renderHeader()}
-        columns={columns.map((col: TableColumnType) => ({
+        header={<Header onFilterChange={handleFilterChange} />}
+        columns={columns.map((col: TableColumn) => ({
           field: col.field,
           header: t(col.header),
         }))}
         emptyMessage={t('no-results')}
       />
+    </div>
+  );
+};
+
+type FilterProps = {
+  onFilterChange: (filterText: string) => void;
+};
+
+const Header: FC<FilterProps> = ({ onFilterChange }) => {
+  const { t } = useTranslation();
+  const [filterText, setFilterText] = useState('');
+
+  const handleFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const text = event.target.value;
+    setFilterText(text);
+  };
+
+  useEffect(() => {
+    onFilterChange(filterText);
+  }, [filterText]);
+
+  return (
+    <div className="flex justify-content-end">
+      <span className="p-input-icon-left">
+        <i className="pi pi-search" />
+        <InputText value={filterText} onChange={handleFilterChange} placeholder={t('search') || ''} />
+      </span>
     </div>
   );
 };
