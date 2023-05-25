@@ -42,3 +42,18 @@ body {
 .p-menubar {
   justify-content: center;
 }
+
+.p-datatable-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.datatable-container {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
