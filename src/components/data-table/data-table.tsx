@@ -1,3 +1,4 @@
+import { debounce } from 'lodash';
 import { Column } from 'primereact/column';
 import { DataTable as PrimeReactDataTable, DataTableProps } from 'primereact/datatable';
 import { Paginator } from 'primereact/paginator';
@@ -38,8 +39,12 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
     return <></>;
   }
 
-  const handleFilterChange = (filterText: string) => {
+  const debouncedFilter = debounce((filterText: string) => {
     setFilter({ [globalFilterKey]: `/${filterText}/i` });
+  }, 300);
+
+  const handleFilterChange = (filterText: string) => {
+    debouncedFilter(filterText);
   };
 
   const handlePageChange = (paginationItem: PaginationItem) => {
