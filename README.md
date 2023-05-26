@@ -1,3 +1,9 @@
+# Live demo
+
+```bash
+https://maja-mandic-project.vercel.app/
+```
+
 # Prerequisites
 
 1. nodejs
