@@ -16,8 +16,16 @@ type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 } & DataTableProps<any>;
 
+type PaginationItem = {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+};
+
 const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...rest }) => {
   const { t } = useTranslation();
+  const rows = 10;
 
   const [offset, setOffset] = useState<number>(0);
   const [filter, setFilter] = useState({});
@@ -31,11 +39,16 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
     setFilter({ [globalFilterKey]: `/${filterText}/i` });
   };
 
+  const handlePageChange = (paginationItem: PaginationItem) => {
+    const { rows, page } = paginationItem;
+    setOffset(page * rows);
+  };
+
   return (
     <div className="datatable-container">
       <PrimeReactDataTable
         value={data.docs}
-        rows={10}
+        rows={rows}
         dataKey={columns[0].field || ''}
         filterDisplay="row"
         loading={isLoading}
@@ -55,7 +68,12 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
           />
         ))}
       </PrimeReactDataTable>
-      <Paginator first={0} rows={10} totalRecords={data.total} onPageChange={(p) => console.log(p)} />
+      <Paginator
+        first={offset}
+        rows={rows}
+        totalRecords={data.total}
+        onPageChange={(paginationItem: PaginationItem) => handlePageChange(paginationItem)}
+      />
     </div>
   );
 };
