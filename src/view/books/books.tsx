@@ -1,17 +1,18 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import TableView from '../../components/table-view/table-view';
+import DataTable from '../../components/data-table/data-table';
 import { TableColumn } from '../../shared/types';
+import { useGetBooksQuery } from '../../store/service';
 
 const columns: TableColumn[] = [
   {
-    field: 'title',
-    header: 'title',
+    field: '_id',
+    header: 'id',
   },
   {
-    field: 'author',
-    header: 'author',
+    field: 'name',
+    header: 'name',
   },
 ];
 
@@ -21,8 +22,7 @@ const Books: FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1>{t('books')}</h1>
-      <TableView columns={columns} />
-      <a href="/books/1">GO TO BOOK 1</a>
+      <DataTable columns={columns} globalFilterKey="name" query={useGetBooksQuery} />
     </div>
   );
 };

@@ -1,13 +1,22 @@
 {
-  "author": "Author",
+  "academy-award-nominations": "Academy award nominations",
+  "academy-award-wins": "Academy award wins",
   "books": "Books",
+  "box-office-revenue-in-millions": "Box office revenue in millions",
+  "budget-in-millions": "Budget in millions",
+  "character": "Character",
+  "dialog": "Dialog",
   "error-message": "Sorry, an unexpected error has occurred - please, go back to ",
   "error-title": "Oops",
   "home": "Home",
+  "id": "Id",
   "lotr": "Lord of the Rings",
+  "movie": "Movie",
   "movies": "Movies",
+  "name": "Name",
   "no-results": "No results...",
   "quotes": "Quotes",
-  "search": "Search...",
-  "title": "Title"
+  "rotten-tomatoes-score": "Rotten tomatoes score",
+  "runtime-in-minutes": "Runtime in minutes",
+  "search": "Search..."
 }
