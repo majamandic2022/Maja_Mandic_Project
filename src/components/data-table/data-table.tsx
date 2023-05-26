@@ -2,7 +2,7 @@ import { debounce } from 'lodash';
 import { Column } from 'primereact/column';
 import { DataTable as PrimeReactDataTable, DataTableProps } from 'primereact/datatable';
 import { Paginator } from 'primereact/paginator';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { TableColumn } from '../../shared/types';
@@ -34,6 +34,9 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
 
   const [offset, setOffset] = useState<number>(0);
   const [filter, setFilter] = useState<object>({});
+  // TODO: type
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const { data, isLoading, isSuccess } = query({ offset, query: filter });
 
   if (!isSuccess && isLoading) {

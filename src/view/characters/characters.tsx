@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import DataTable from '../../components/data-table/data-table';
 import DataTableWrapper from '../../components/data-table-wrapper/data-table-wrapper';

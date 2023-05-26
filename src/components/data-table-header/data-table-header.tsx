@@ -1,5 +1,5 @@
 import { InputText } from 'primereact/inputtext';
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type FilterProps = {

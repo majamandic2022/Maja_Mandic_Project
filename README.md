@@ -66,9 +66,9 @@ npm run dev
 ```
 
 Runs the app in the development mode.\
-Open [http://localhost:5173/](http://localhost:5173/) to view an application in the browser. \
+Open [http://localhost:5173/](http://localhost:5173/) to view an application in the browser.\
 
-The page will reload if you make edits.\
+The page will reload if you make edits.
 
 ### Other
 

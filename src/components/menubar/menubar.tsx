@@ -1,5 +1,5 @@
 import { Menubar as PrimeReactMenubar, MenubarProps } from 'primereact/menubar';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type Props = { ['cy-data']?: string } & MenubarProps;
 
