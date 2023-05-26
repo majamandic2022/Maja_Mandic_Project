@@ -11,8 +11,8 @@ import store from './store';
 import Characters from './view/characters/characters.tsx';
 import ErrorPage from './view/error-page/error-page.tsx';
 import Home from './view/home/home.tsx';
-import Movie from './view/movies/movie/movie.tsx';
 import Movies from './view/movies/movies.tsx';
+import Quote from './view/quotes/quote/quote.tsx';
 import Quotes from './view/quotes/quotes.tsx';
 
 import './i18n';
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
         element: <Characters />,
       },
       {
-        path: 'movies/:id',
-        element: <Movie />,
-      },
-      {
         path: 'quotes',
         element: <Quotes />,
+      },
+      {
+        path: 'quotes/:id',
+        element: <Quote />,
       },
     ],
   },

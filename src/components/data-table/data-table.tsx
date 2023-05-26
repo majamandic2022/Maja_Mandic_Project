@@ -15,6 +15,7 @@ type Props = {
   columns: TableColumn[];
   globalFilterKey: string;
   onRowClick?: (id: string) => void;
+  // TODO: fix type
   query: unknown;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 } & DataTableProps<any>;
@@ -65,7 +66,12 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
         {...rest}
       >
         {columns.map((column: TableColumn) => (
-          <Column key={column.field} field={column.field} header={t(column.header)} style={{ width: '20rem' }} />
+          <Column
+            key={column.field}
+            field={column.field}
+            header={t(column.header)}
+            style={{ width: '20rem', cursor: 'pointer' }}
+          />
         ))}
       </PrimeReactDataTable>
       <Paginator

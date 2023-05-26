@@ -10,7 +10,7 @@ const getQuotesUrl = (offset: number, filter: { dialog?: string }) =>
   `${baseQuotesUrl}?offset=${offset}&limit=${limit}&${stringify(filter)}`;
 
 export const getQuotes = (build: BuildType) => {
-  return build.query<PageableItems<Quote[]>, unknown>({
+  return build.query<PageableItems<Quote>, unknown>({
     query: ({ offset, query }: { offset: number; query: { dialog?: string } }) => ({
       url: getQuotesUrl(offset, query),
       method: 'GET',

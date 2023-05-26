@@ -10,7 +10,7 @@ const getCharactersUrl = (offset: number, filter: { name?: string }) =>
   `${baseCharactersUrl}?offset=${offset}&limit=${limit}&${stringify(filter)}`;
 
 export const getCharacters = (build: BuildType) => {
-  return build.query<PageableItems<Character[]>, unknown>({
+  return build.query<PageableItems<Character>, unknown>({
     query: ({ offset, query }: { offset: number; query: { name?: string } }) => ({
       url: getCharactersUrl(offset, query),
       method: 'GET',
