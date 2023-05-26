@@ -4,6 +4,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 import Menubar from '../../components/menubar/menubar';
 
+import { Title } from './home.style';
+
 const Home: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -24,10 +26,10 @@ const Home: FC = () => {
       },
     },
     {
-      label: t('books'),
-      icon: 'pi pi-fw pi-book',
+      label: t('characters'),
+      icon: 'pi pi-fw pi-users',
       command: () => {
-        navigate('/books');
+        navigate('/characters');
       },
     },
     {
@@ -42,10 +44,8 @@ const Home: FC = () => {
   return (
     <>
       <Menubar model={items} />
-      <h1 style={{ textAlign: 'center' }}>{t('lotr')}</h1>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Outlet />
-      </div>
+      <Title>{t('lotr')}</Title>
+      <Outlet />
     </>
   );
 };

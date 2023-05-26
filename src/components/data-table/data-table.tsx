@@ -5,7 +5,9 @@ import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { TableColumn } from '../../shared/types';
-import Header from '../data-table-header/data-table-header';
+import DataTableHeader from '../data-table-header/data-table-header';
+
+import { DataTableContainer } from './data-table-container.style';
 
 type Props = {
   ['cy-data']?: string;
@@ -23,12 +25,13 @@ type PaginationItem = {
   pageCount: number;
 };
 
+const rows = 5;
+
 const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...rest }) => {
   const { t } = useTranslation();
-  const rows = 10;
 
   const [offset, setOffset] = useState<number>(0);
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState<object>({});
   const { data, isLoading, isSuccess } = query({ offset, query: filter });
 
   if (!isSuccess && isLoading) {
@@ -45,27 +48,19 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
   };
 
   return (
-    <div className="datatable-container">
+    <DataTableContainer>
       <PrimeReactDataTable
         value={data.docs}
         rows={rows}
         dataKey={columns[0].field || ''}
-        filterDisplay="row"
         loading={isLoading}
-        header={<Header onFilterChange={handleFilterChange} />}
+        header={<DataTableHeader onFilterChange={handleFilterChange} />}
         emptyMessage={t('no-results')}
         onRowClick={(e) => onRowClick && onRowClick(e.data['_id'] || '')}
         {...rest}
       >
         {columns.map((column: TableColumn) => (
-          <Column
-            key={column.field}
-            field={column.field}
-            header={t(column.header)}
-            filter
-            filterPlaceholder={t('search') || ''}
-            style={{ minWidth: '12rem' }}
-          />
+          <Column key={column.field} field={column.field} header={t(column.header)} style={{ width: '20rem' }} />
         ))}
       </PrimeReactDataTable>
       <Paginator
@@ -74,7 +69,7 @@ const DataTable: FC<Props> = ({ columns, globalFilterKey, onRowClick, query, ...
         totalRecords={data.total}
         onPageChange={(paginationItem: PaginationItem) => handlePageChange(paginationItem)}
       />
-    </div>
+    </DataTableContainer>
   );
 };
 

@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-    "@types/qs": "^6.9.7",
     "i18next": "^22.5.0",
     "i18next-browser-languagedetector": "^7.0.1",
     "localforage": "^1.10.0",
+    "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
     "primeicons": "^6.0.1",
     "primereact": "^9.5.0",
@@ -28,12 +28,16 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
     "sass": "^1.62.1",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.195",
     "@types/node": "^20.2.3",
+    "@types/qs": "^6.9.7",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",

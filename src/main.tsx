@@ -8,7 +8,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
 import store from './store';
-import Books from './view/books/books.tsx';
+import Characters from './view/characters/characters.tsx';
 import ErrorPage from './view/error-page/error-page.tsx';
 import Home from './view/home/home.tsx';
 import Movie from './view/movies/movie/movie.tsx';
@@ -16,7 +16,9 @@ import Movies from './view/movies/movies.tsx';
 import Quotes from './view/quotes/quotes.tsx';
 
 import './i18n';
-import './index.scss';
+import './styles/index.scss';
+import './styles/datatable-header.scss';
+import './styles/menubar.scss';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,8 @@ const router = createBrowserRouter([
         element: <Movies />,
       },
       {
-        path: 'books',
-        element: <Books />,
+        path: 'characters',
+        element: <Characters />,
       },
       {
         path: 'movies/:id',

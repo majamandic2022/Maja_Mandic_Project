@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {};
 const reducers = {};
 
-const moviesSlice = createSlice({
-  name: 'movies',
+const charactersSlice = createSlice({
+  name: 'characters',
   initialState,
   reducers,
 });
 
-export default moviesSlice.reducer;
+export default charactersSlice.reducer;

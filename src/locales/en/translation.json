@@ -1,13 +1,18 @@
 {
   "academy-award-nominations": "Academy award nominations",
   "academy-award-wins": "Academy award wins",
-  "books": "Books",
+  "birth": "Birth",
   "box-office-revenue-in-millions": "Box office revenue in millions",
   "budget-in-millions": "Budget in millions",
   "character": "Character",
+  "characters": "Characters",
+  "death": "Death",
   "dialog": "Dialog",
   "error-message": "Sorry, an unexpected error has occurred - please, go back to ",
   "error-title": "Oops",
+  "gender": "Gender",
+  "hair": "Hair",
+  "height": "Height",
   "home": "Home",
   "id": "Id",
   "lotr": "Lord of the Rings",
@@ -16,7 +21,11 @@
   "name": "Name",
   "no-results": "No results...",
   "quotes": "Quotes",
+  "race": "Race",
+  "realm": "Realm",
   "rotten-tomatoes-score": "Rotten tomatoes score",
   "runtime-in-minutes": "Runtime in minutes",
-  "search": "Search..."
+  "search": "Search...",
+  "spouse": "Spouse",
+  "wiki-url": "Wiki URL"
 }

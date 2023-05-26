@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import booksReducer from './books/slice';
+import charactersReducer from './characters/slice';
 import moviesReducer from './movies/slice';
+import quotesReducer from './quotes/slice';
 import { api } from './service';
 
 const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
-    books: booksReducer,
+    characters: charactersReducer,
     movies: moviesReducer,
+    quotes: quotesReducer,
   },
   middleware: (gdm) => gdm().concat(api.middleware),
 });

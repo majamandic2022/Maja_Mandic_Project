@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import DataTable from '../../components/data-table/data-table';
+import DataTableWrapper from '../../components/data-table-wrapper/data-table-wrapper';
 import { TableColumn } from '../../shared/types';
 import { useGetMoviesQuery } from '../../store/service';
 
@@ -41,20 +41,20 @@ const columns: TableColumn[] = [
   },
 ];
 
+const title = 'movies';
+
 const Movies: FC = () => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1>{t('movies')}</h1>
+    <DataTableWrapper title={title}>
       <DataTable
         columns={columns}
         globalFilterKey="name"
         onRowClick={(id) => navigate(`/movies/${id}`)}
         query={useGetMoviesQuery}
       />
-    </div>
+    </DataTableWrapper>
   );
 };
 

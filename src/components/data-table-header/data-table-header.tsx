@@ -6,7 +6,7 @@ type FilterProps = {
   onFilterChange: (filterText: string) => void;
 };
 
-const Header: FC<FilterProps> = ({ onFilterChange }) => {
+const DataTableHeader: FC<FilterProps> = ({ onFilterChange }) => {
   const { t } = useTranslation();
   const [filterText, setFilterText] = useState('');
 
@@ -29,4 +29,4 @@ const Header: FC<FilterProps> = ({ onFilterChange }) => {
   );
 };
 
-export default Header;
+export default DataTableHeader;
